@@ -1,23 +1,61 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="style.css">
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Wisata Lokal</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-<h1>Wisata Lokal</h1>
-<nav>
-<a href="index.html">Beranda</a>
-<a href="login.html">Admin</a>
-</nav>
+
+<!-- HEADER -->
+<header class="navbar">
+  <h1>🌴 Wisata Lokal</h1>
+  <nav>
+    <a href="#home">Beranda</a>
+    <a href="#wisata">Wisata</a>
+    <a href="#kategori">Kategori</a>
+    <a href="login.html">Admin</a>
+  </nav>
 </header>
 
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-text">
+    <h2>Jelajahi Keindahan Wisata Lokal</h2>
+    <p>Temukan destinasi wisata terbaik: alam, kuliner, dan religi lengkap dengan peta & harga tiket.</p>
+    <a href="#wisata" class="btn">Lihat Wisata</a>
+  </div>
+</section>
 
-<div class="container">
-<h2>Daftar Wisata</h2>
-<div id="listWisata"></div>
-</div>
+<!-- KATEGORI -->
+<section id="kategori" class="container">
+  <h2>Kategori Wisata</h2>
+  <div class="grid">
+    <div class="card kategori">🌄 <h3>Wisata Alam</h3></div>
+    <div class="card kategori">🍜 <h3>Wisata Kuliner</h3></div>
+    <div class="card kategori">🕌 <h3>Wisata Religi</h3></div>
+  </div>
+</section>
+
+<!-- DAFTAR WISATA -->
+<section id="wisata" class="container">
+  <h2>Destinasi Populer</h2>
+  <p>Berikut rekomendasi tempat wisata yang wajib kamu kunjungi</p>
+  <div id="listWisata" class="grid"></div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section class="cta">
+  <h2>Punya Rekomendasi Wisata?</h2>
+  <p>Kirimkan saran wisata favoritmu agar bisa dinikmati banyak orang</p>
+  <a href="login.html" class="btn">Kelola Wisata</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 Wisata Lokal Indonesia | Project UAS</p>
+</footer>
+
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
