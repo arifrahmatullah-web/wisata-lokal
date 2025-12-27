@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<title>Detail Wisata</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Detail Wisata</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body onload="detailWisata()">
+<body>
+
+<header class="navbar">
+  <h1>Detail Wisata</h1>
+  <a href="index.html" class="btn">⬅ Kembali</a>
+</header>
+
 <div class="container" id="detail"></div>
-<script src="script.js"></script>
+
+<script>
+  let wisata = JSON.parse(localStorage.getItem('wisata'));
+
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id');
+  const w = wisata[id];
+
+  document.getElementById('detail').innerHTML = `
+    <div class="card">
+      <img src="${w.foto}">
+      <h2>${w.nama}</h2>
+      <p><b>Kategori:</b> ${w.kategori}</p>
+      <p><b>Harga:</b> ${w.harga}</p>
+      <p><b>Lokasi:</b> ${w.lokasi}</p>
+      <p>${w.deskripsi}</p>
+
+      <iframe
+        width="100%"
+        height="250"
+        src="https://maps.google.com/maps?q=${w.lokasi}&output=embed">
+      </iframe>
+    </div>
+  `;
+</script>
+
 </body>
 </html>
