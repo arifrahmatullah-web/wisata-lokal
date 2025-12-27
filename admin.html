@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Admin Wisata</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body onload="cekLogin()">
+<header>
+<h1>Admin Wisata</h1>
+<button onclick="logout()">Logout</button>
+</header>
+
+
+<div class="container">
+<div class="card">
+<h3>Tambah Wisata</h3>
+<input id="nama" placeholder="Nama Wisata">
+<select id="kategori">
+<option>Alam</option>
+<option>Kuliner</option>
+<option>Religi</option>
+</select>
+<input id="harga" placeholder="Harga Tiket">
+<input id="lokasi" placeholder="Lokasi">
+<input id="foto" placeholder="URL Foto">
+<textarea id="deskripsi" placeholder="Deskripsi"></textarea>
+<button onclick="tambahWisata()">Simpan</button>
+</div>
+<div id="listWisata"></div>
+</div>
+<script src="script.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>
+
