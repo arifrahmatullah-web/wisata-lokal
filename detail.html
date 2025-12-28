@@ -1,43 +1,131 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Detail Wisata</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Destinasi — Travel Explore</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific Detail Page Adjustments */
+        body {
+            background-color: var(--bg-color);
+            transition: background-color 0.3s;
+        }
+    </style>
 </head>
+
 <body>
 
-<header class="navbar">
-  <h1>Detail Wisata</h1>
-  <a href="index.html" class="btn">⬅ Kembali</a>
-</header>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Travel<span>Explore</span></a>
 
-<div class="container" id="detail"></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="index.html#destinations">Destinasi</a></li>
+                <li><a href="index.html#itinerary">Itinerary</a></li>
+                <li class="theme-toggle" id="theme-toggle" title="Ganti Mode">🌙</li>
+            </ul>
 
-<script>
-  let wisata = JSON.parse(localStorage.getItem('wisata'));
+            <div class="hamburger">
+                ☰
+            </div>
+        </div>
+    </nav>
 
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get('id');
-  const w = wisata[id];
-
-  document.getElementById('detail').innerHTML = `
-    <div class="card">
-      <img src="${w.foto}">
-      <h2>${w.nama}</h2>
-      <p><b>Kategori:</b> ${w.kategori}</p>
-      <p><b>Harga:</b> ${w.harga}</p>
-      <p><b>Lokasi:</b> ${w.lokasi}</p>
-      <p>${w.deskripsi}</p>
-
-      <iframe
-        width="100%"
-        height="250"
-        src="https://maps.google.com/maps?q=${w.lokasi}&output=embed">
-      </iframe>
+    <!-- Detail Hero Section -->
+    <div id="detail-hero" class="detail-hero">
+        <div class="detail-hero-overlay"></div>
+        <div class="container detail-hero-content">
+            <a href="index.html" class="btn-back">← Kembali ke Daftar</a>
+            <span class="detail-badge" id="detail-category">Kategori</span>
+            <h1 id="detail-title">Nama Destinasi</h1>
+        </div>
     </div>
-  `;
-</script>
 
+    <!-- Main Content -->
+    <section class="detail-content-section">
+        <div class="container">
+            <div class="detail-layout">
+
+                <!-- Left Column: Info & Description -->
+                <div class="detail-main">
+                    <div class="detail-card info-grid">
+                        <div class="info-item">
+                            <span class="info-icon">🕒</span>
+                            <div>
+                                <small>Jam Operasional</small>
+                                <strong id="detail-time">-</strong>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">💵</span>
+                            <div>
+                                <small>Harga Tiket</small>
+                                <strong id="detail-price">-</strong>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">⭐</span>
+                            <div>
+                                <small>Rating</small>
+                                <strong id="detail-rating">-</strong>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">✨</span>
+                            <div>
+                                <small>Highlight</small>
+                                <strong id="detail-features">-</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-description">
+                        <h3>Tentang Tempat Ini</h3>
+                        <p id="detail-desc">Deskripsi tempat wisata akan muncul di sini.</p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Map -->
+                <div class="detail-sidebar">
+                    <div class="map-container detail-card">
+                        <h3>Lokasi / Peta</h3>
+                        <div class="map-frame-wrapper">
+                            <iframe id="detail-map" width="100%" height="300" frameborder="0" style="border:0" src=""
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <a href="#" id="google-maps-link" target="_blank" class="btn-maps">Buka di Google Maps ↗</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Travel Explore Lombok Utara. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Init detail page specific logic if needed, 
+        // but mostly we will handle it in script.js by checking the URL
+    </script>
 </body>
+
 </html>
