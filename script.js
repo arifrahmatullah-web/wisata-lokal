@@ -167,7 +167,7 @@ const destinations = [
         name: "Opak-opak",
         category: "Kuliner Khas",
         desc: "Opak-opak adalah kerupuk tradisional khas Lombok Utara yang terbuat dari ubi kayu dan kelapa, dipanggang di atas bara api hingga renyah. Sering disajikan sebagai pelengkap pelecing kangkung atau dinikmati langsung sebagai camilan sehat.",
-        image: "https://placehold.co/600x400?text=Opak-Opak+Lombok",
+        image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJ5-EERM_hkvvv_eACACBMP7T5xd3sxu6KijtSolCiuUhBGEzx0ShMX5K0xYwXTD0dGV6o6rJYxJp_KZxSu-kMV_xyWRCensrPKLH3txQPXvHGCb7mUoh00cIccLOTJtmqVzsJFM96Nhc/s1600/Opak-Pelecing-Khas-Lombok-Utara.jpg",
         details: {
             time: "08.00 - 22.00",
             rating: "★★★★☆",
