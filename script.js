@@ -161,6 +161,20 @@ const destinations = [
             features: "Warisan, Sejarah, Situs Religi"
         },
         mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.697472093786!2d116.4258333!3d-8.2913889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcc48705c5c5c5d%3A0x5c5c5c5c5c5c5c5c!2sMasjid%20Kuno%20Bayan%20Beleq!5e0!3m2!1sen!2sid!4v1716904000000!5m2!1sen!2sid"
+    },
+    {
+        id: 12,
+        name: "Opak-opak",
+        category: "Kuliner Khas",
+        desc: "Opak-opak adalah kerupuk tradisional khas Lombok Utara yang terbuat dari ubi kayu dan kelapa, dipanggang di atas bara api hingga renyah. Sering disajikan sebagai pelengkap pelecing kangkung atau dinikmati langsung sebagai camilan sehat.",
+        image: "https://placehold.co/600x400?text=Opak-Opak+Lombok",
+        details: {
+            time: "08.00 - 22.00",
+            rating: "★★★★☆",
+            price: "Rp 5.000 - Rp 10.000",
+            features: "Kuliner, Tradisional, Oleh-oleh"
+        },
+        mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15797.776606399583!2d116.1488889!3d-8.3586111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcc048674747475%3A0x8888888888888888!2sKecamatan%20Tanjung!5e0!3m2!1sen!2sid!4v1716904000000!5m2!1sen!2sid" // Placeholder Tanjung area
     }
 ];
 
