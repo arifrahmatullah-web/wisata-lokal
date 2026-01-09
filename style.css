@@ -321,63 +321,175 @@ body.dark-mode .card-details {
     scroll-margin-top: 80px;
 }
 
-.timeline-container {
+/* Tab Navigation */
+.itinerary-tabs {
     display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
     justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    background-color: transparent;
+    border: 2px solid var(--accent-color-1);
+    color: var(--accent-color-1);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.tab-btn:hover {
+    background-color: rgba(56, 173, 169, 0.1);
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background-color: var(--accent-color-1);
+    color: white;
+    box-shadow: 0 4px 15px rgba(56, 173, 169, 0.4);
+}
+
+body.dark-mode .tab-btn.active {
+    color: var(--bg-color);
+}
+
+/* Itinerary Content */
+.itinerary-content-wrapper {
+    position: relative;
+    min-height: 400px;
+    /* Prevent layout shift */
 }
 
 .timeline-box {
     background-color: var(--bg-color);
-    padding: 2rem;
+    padding: 3rem;
     border-radius: 12px;
-    flex: 1 1 300px;
     box-shadow: var(--shadow);
+    max-width: 800px;
+    margin: 0 auto;
+    display: none;
+    /* Hidden by default */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
     border-top: 5px solid var(--accent-color-1);
 }
 
-.timeline-box h3 {
+.timeline-box.active-tab {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.timeline-header {
     text-align: center;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
+    margin-bottom: 2.5rem;
 }
 
-body.dark-mode .timeline-box h3 {
+.timeline-header h3 {
     color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
 }
 
+.timeline-header p {
+    color: #666;
+}
+
+body.dark-mode .timeline-header p {
+    color: #aaa;
+}
+
+
+/* Timeline Steps styling */
 .timeline-steps {
     list-style: none;
     position: relative;
-    padding-left: 20px;
+    padding-left: 30px;
 }
 
 .timeline-steps::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 0;
-    height: 100%;
+    top: 5px;
+    height: 95%;
     width: 2px;
-    background-color: #ddd;
+    background: linear-gradient(to bottom, var(--accent-color-1), transparent);
 }
 
 .timeline-steps li {
     position: relative;
-    margin-bottom: 1.5rem;
-    padding-left: 15px;
+    margin-bottom: 2rem;
+    padding-left: 20px;
+}
+
+.timeline-steps li:last-child {
+    margin-bottom: 0;
 }
 
 .timeline-steps li::before {
     content: '';
     position: absolute;
-    left: -24px;
-    top: 6px;
-    width: 10px;
-    height: 10px;
-    background-color: var(--accent-color-1);
+    left: -34px;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background-color: var(--card-bg);
+    border: 3px solid var(--accent-color-1);
     border-radius: 50%;
+    z-index: 1;
+    transition: background-color 0.3s;
+}
+
+.timeline-steps li:hover::before {
+    background-color: var(--accent-color-1);
+    box-shadow: 0 0 0 4px rgba(56, 173, 169, 0.2);
+}
+
+.timeline-steps .time {
+    display: inline-block;
+    background-color: var(--accent-color-2);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-steps .step-content {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.timeline-steps .step-content strong {
+    display: block;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+body.dark-mode .timeline-steps .step-content strong {
+    color: var(--primary-color);
 }
 
 /* Tips Section */
@@ -392,24 +504,87 @@ body.dark-mode .timeline-box h3 {
     gap: 1.5rem;
 }
 
+/* Flip Card Styles */
 .tip-card {
-    background: linear-gradient(145deg, var(--card-bg), var(--bg-color));
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 1.5rem;
-    border-radius: 12px;
-    text-align: center;
-    transition: transform 0.3s;
+    background-color: transparent;
+    border: none;
+    height: 300px;
+    /* Fixed height for flip effect */
+    perspective: 1000px;
+    cursor: pointer;
 }
 
-.tip-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color-1);
+.tip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: var(--shadow);
+    border-radius: 12px;
+}
+
+.tip-card:hover .tip-card-inner,
+.tip-card:focus .tip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.tip-card-front,
+.tip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.tip-card-front {
+    background: linear-gradient(135deg, var(--card-bg), var(--bg-color));
+    color: var(--text-color);
+}
+
+.tip-card-back {
+    background: linear-gradient(135deg, var(--accent-color-1), #218c88);
+    color: white;
+    transform: rotateY(180deg);
 }
 
 .tip-icon {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
     display: block;
+}
+
+.tip-card-front h4 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.click-hint {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 1rem;
+    opacity: 0.7;
+}
+
+.tip-card-back h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.tip-card-back p {
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 /* Contact Section */
@@ -555,7 +730,7 @@ body.dark-mode #back-to-top {
 }
 
 /* ========================================= */
-/* DETAIL PAGE STYLES */
+/* DETAIL HALAMAN STYLES */
 /* ========================================= */
 
 .detail-hero {
