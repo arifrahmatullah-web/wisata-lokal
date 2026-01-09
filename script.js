@@ -167,7 +167,7 @@ const destinations = [
         name: "Opak-opak",
         category: "Kuliner Khas",
         desc: "Opak-opak adalah kerupuk tradisional khas Lombok Utara yang terbuat dari ubi kayu dan kelapa, dipanggang di atas bara api hingga renyah. Sering disajikan sebagai pelengkap pelecing kangkung atau dinikmati langsung sebagai camilan sehat.",
-        image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJ5-EERM_hkvvv_eACACBMP7T5xd3sxu6KijtSolCiuUhBGEzx0ShMX5K0xYwXTD0dGV6o6rJYxJp_KZxSu-kMV_xyWRCensrPKLH3txQPXvHGCb7mUoh00cIccLOTJtmqVzsJFM96Nhc/s1600/Opak-Pelecing-Khas-Lombok-Utara.jpg",
+        image: "https://placehold.co/600x400?text=Opak-Opak+Lombok",
         details: {
             time: "08.00 - 22.00",
             rating: "★★★★☆",
@@ -327,3 +327,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Itinerary Tab Switching
+function openItinerary(evt, itineraryName) {
+    // 1. Hide all tab content
+    const tabContents = document.getElementsByClassName("timeline-box");
+    for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove("active-tab");
+        // Reset animation by briefly hiding display (css handles this based on class remove)
+    }
+
+    // 2. Remove active class from all tab buttons
+    const tabLinks = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].classList.remove("active");
+    }
+
+    // 3. Show the specific tab content
+    document.getElementById(itineraryName).classList.add("active-tab");
+
+    // 4. Add active class to the button that opened the tab
+    evt.currentTarget.classList.add("active");
+}
